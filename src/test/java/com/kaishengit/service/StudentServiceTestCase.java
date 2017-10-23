@@ -41,7 +41,7 @@ public class StudentServiceTestCase {
     }
 
     @Test
-    public void testFindStudentById() {
+    public void findStudentByIdTest() {
 
         Student student = studentService.findStudentById(1);
         Assert.assertNotNull(student);

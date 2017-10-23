@@ -2,7 +2,7 @@ package com.kaishengit.service;
 
 import com.kaishengit.entity.Student;
 import com.kaishengit.mapper.StudentMapper;
-import com.kaishengit.util.MyBatisSqlSessionFactory;
+import com.kaishengit.util.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public class StudentService {
 
     public List<Student> findAllStudents () {
 
-        SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+        SqlSession sqlSession = MyBatisUtil.openSession();
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
             return studentMapper.findAllStudents();
@@ -30,7 +30,7 @@ public class StudentService {
     public Student findStudentById (int id) {
 
         //logger.debug("select student by id : {}", id);
-        SqlSession sqlSession  = MyBatisSqlSessionFactory.openSession();
+        SqlSession sqlSession  = MyBatisUtil.openSession();
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
             return studentMapper.findStudentById(id);
@@ -41,7 +41,7 @@ public class StudentService {
 
     public void createStudent (Student student) {
 
-        SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+        SqlSession sqlSession = MyBatisUtil.openSession();
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
             studentMapper.insertStudent(student);
@@ -53,7 +53,7 @@ public class StudentService {
 
     public void deleteStudentById (int id) {
 
-        SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+        SqlSession sqlSession = MyBatisUtil.openSession();
 
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
@@ -65,7 +65,7 @@ public class StudentService {
     }
 
     public void updateStudentById (Student student) {
-        SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();
+        SqlSession sqlSession = MyBatisUtil.openSession();
 
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);

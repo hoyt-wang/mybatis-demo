@@ -7,6 +7,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -73,9 +75,15 @@ public class StudentServiceTestCase {
         Student student = studentService.findStudentById(6);
         student.setName("ray");
         student.setEmail("ray@yahoo.com");
-        student.setDob(new Date());
-
-        studentService.updateStudentById(student);
-
+        String birthDay = "1988-01-01";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = sdf.parse(birthDay);
+            student.setDob(date);
+            studentService.updateStudentById(student);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
+
 }

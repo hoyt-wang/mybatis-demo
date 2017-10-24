@@ -4,12 +4,20 @@
 
 <mapper namespace="com.kaishengit.mapper.UserMapper">
 
+    <resultMap id="baseMap" type="user">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="password" property="password" />
+        <result column="address" property="address"/>
+        <result column="dept_id" property="deptId"/>
+    </resultMap>
+
     <!--<resultMap id="resultMap" type="user">
         <id column="id" property="id"/>
         <result column="user_name" property="userName"/>
         <result column="password" property="password" />
         <result column="address" property="address"/>
-        <result column="dept_id" property="deptName"/>
+        <result column="dept_id" property="deptId"/>
         <association property="dept" javaType="com.kaishengit.Dept">
             <id column="id" property="id"/>
             <result column="dept_name" property="deptName"/>
@@ -31,4 +39,27 @@
             u.id = #{userId};
     </select>
 
+    <resultMap id="userwithTagMap" type="user" extends="baseMap">
+        <collection property="tagList" ofType="tag">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
+    <select id="findByIdWithTag" resultMap="userwithTagMap" parameterType="int">
+        SELECT
+            t_user.id,
+            user_name,
+            PASSWORD,
+            address,
+            dept_id,
+            t_tag.id as tag_id,
+            tag_name
+        FROM
+            t_user
+        INNER JOIN t_user_tag ON t_user.id = t_user_tag.uid
+        INNER JOIN t_tag ON t_tag.id = t_user_tag.tid
+        WHERE
+            t_user.id = 1
+    </select>
 </mapper>

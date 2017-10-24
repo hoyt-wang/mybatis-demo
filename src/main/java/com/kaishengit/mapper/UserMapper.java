@@ -7,4 +7,5 @@ import com.kaishengit.entity.User;
  */
 public interface UserMapper {
     User findUserById(int id);
+    User findByIdWithTag(int id);
 }

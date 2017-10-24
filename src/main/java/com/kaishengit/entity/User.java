@@ -1,5 +1,7 @@
 package com.kaishengit.entity;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/10/24.
  */
@@ -10,6 +12,15 @@ public class User {
     private String address;
     private int deptId;
     private Dept dept;
+    private List<Tag> tagList;
+
+    public List<Tag> getTagList() {
+        return tagList;
+    }
+
+    public void setTagList(List<Tag> tagList) {
+        this.tagList = tagList;
+    }
 
     public int getId() {
         return id;
@@ -68,6 +79,7 @@ public class User {
                 ", address='" + address + '\'' +
                 ", deptId=" + deptId +
                 ", dept=" + dept +
+                ", tagList=" + tagList +
                 '}';
     }
 }

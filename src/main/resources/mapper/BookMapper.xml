@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mapper.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaishengit.mapper.BookMapper">
+
+    <select id="findBookByKeys" resultType="book">
+        select * from t_book
+        <if test="keys != null and keys != ''">
+            WHERE  bookName like #{keys}
+        </if>
+    </select>
+
+    <select id="findBookByParam" resultType="book" parameterType="map">
+        SELECT * FROM t_book
+      <!--  <trim prefix="WHERE" prefixOverrides="and | or">
+            <if test="title != null and title != ''">
+                title like #{title}
+            </if>
+            <if test="director != null and director != ''">
+                AND director like #{director}
+            </if>
+        </trim>-->
+        <where>
+            <if test="keys != null and keys != ''">
+                book_name LIKE #{keys}
+            </if>
+            <if test="author!= null and author != ''">
+                AND author LIKE #{author}
+            </if>
+        </where>
+    </select>
+
+    <select id="findByIdList" resultType="book">
+        select * from t_book
+        WHERE  id in
+        <foreach collection="idList" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
+</mapper>

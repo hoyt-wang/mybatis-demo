@@ -51,7 +51,7 @@ public class StudentServiceTestCase {
     @Test
     public void createStudentTest() throws Exception{
         Student student = new Student();
-        int id = 9;
+        int id = 10;
         student.setId(id);
         student.setName("ray");
         student.setEmail("ray001@gmail.com");
@@ -60,7 +60,10 @@ public class StudentServiceTestCase {
         Date date = sdf.parse(birthDay);
 ;       student.setDob(date);
         int updateRows = studentService.createStudent(student);
+        //获得影响的行数
         System.out.println("UpdateRows-->" + updateRows);
+        //获得主键 在mapper中设置useGeneratedKeys="true" keyProperty="id"
+        System.out.println("primaryKey-->" + student.getId());
       /*  Student newStudent = studentService.findStudentById(id);
         Assert.assertNotNull(newStudent);*/
     }

@@ -27,4 +27,14 @@
     <update id="updateStudent" parameterType="Student">
         UPDATE t_student set name = #{name}, email = #{email}, dob = #{dob} WHERE id = #{id}
     </update>
+    <select id="page" resultType="Student">
+        SELECT
+            id,
+            name,
+            email
+        FROM
+            t_student
+        LIMIT
+            #{offset},#{size}
+    </select>
 </mapper>

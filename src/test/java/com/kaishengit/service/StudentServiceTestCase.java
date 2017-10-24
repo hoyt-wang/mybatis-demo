@@ -86,4 +86,11 @@ public class StudentServiceTestCase {
         }
     }
 
+    @Test
+    public void page() {
+        List<Student> students = studentService.page(0,3);
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
 }

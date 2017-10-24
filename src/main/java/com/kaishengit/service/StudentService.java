@@ -75,4 +75,14 @@ public class StudentService {
             sqlSession.close();
         }
     }
+
+    public List<Student> page(int offset, int size) {
+        SqlSession sqlSession = MyBatisUtil.openSession();
+        try {
+            StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+            return studentMapper.page(offset,size);
+        } finally {
+            sqlSession.close();
+        }
+    }
 }

@@ -39,13 +39,14 @@ public class StudentService {
         }
     }
 
-    public void createStudent (Student student) {
+    public int createStudent (Student student) {
 
         SqlSession sqlSession = MyBatisUtil.openSession();
         try {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
-            studentMapper.insertStudent(student);
+            int updateRows = studentMapper.insertStudent(student);
             sqlSession.commit();
+            return  updateRows;
         } finally {
             sqlSession.close();
         }

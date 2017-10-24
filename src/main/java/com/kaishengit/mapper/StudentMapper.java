@@ -12,7 +12,7 @@ public interface StudentMapper {
 
     List<Student> findAllStudents();
     Student findStudentById(int id);
-    void insertStudent(Student student);
+    int insertStudent(Student student);
     void deleteStudentById(int id);
     void updateStudent(Student student);
     List<Student> page(@Param("offset") int offset,@Param("size") int size);

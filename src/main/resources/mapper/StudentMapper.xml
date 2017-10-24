@@ -18,7 +18,7 @@
         SELECT id, NAME, EMAIL, DOB FROM t_student WHERE id = #{id}
     </select>
 
-    <insert id="insertStudent" parameterType="Student">
+    <insert id="insertStudent" parameterType="Student" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_student(id,NAME,EMAIL,DOB) VALUES(#{id },#{name},#{email},#{dob})
     </insert>
     <delete id="deleteStudentById" parameterType="int">

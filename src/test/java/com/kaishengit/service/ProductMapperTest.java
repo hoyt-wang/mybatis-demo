@@ -31,13 +31,18 @@ public class ProductMapperTest {
 
     @Test
     public void batchSave() {
+
         Product product1 = new Product("AA",100);
         Product product2 = new Product("BB",100);
         Product product3 = new Product("CC",100);
 
+        //Arrays.asList()把数组转换成集合，是Arrays的内部类
         List<Product> productList = Arrays.asList(product1,product2,product3);
+
         productMapper.batchSave(productList);
 
         sqlSession.commit();
     }
+
+
 }

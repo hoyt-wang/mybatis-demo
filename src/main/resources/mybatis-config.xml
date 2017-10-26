@@ -25,10 +25,11 @@
     </environments>
 
     <mappers>
-        <mapper resource="mapper/StudentMapper.xml" />
+      <!--  <mapper resource="mapper/StudentMapper.xml" />-->
         <mapper resource="mapper/UserMapper.xml"/>
         <mapper resource="mapper/BookMapper.xml" />
         <mapper resource="mapper/ProductMapper.xml"/>
+        <mapper class="com.kaishengit.mapper.StudentMapper"/>
     </mappers>
 
 </configuration>

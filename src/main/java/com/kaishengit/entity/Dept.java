@@ -1,9 +1,11 @@
 package com.kaishengit.entity;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/10/24.
  */
-public class Dept {
+public class Dept implements Serializable{
     private int id;
     private String deptName;
 

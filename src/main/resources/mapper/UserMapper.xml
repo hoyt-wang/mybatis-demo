@@ -4,6 +4,7 @@
 
 <mapper namespace="com.kaishengit.mapper.UserMapper">
 
+    <cache/>
     <resultMap id="baseMap" type="user">
         <id column="id" property="id"/>
         <result column="user_name" property="userName"/>

@@ -24,21 +24,21 @@
             <result column="dept_name" property="deptName"/>
         </association>
     </resultMap>-->
-    <select id="findUserById" resultType="user">
+   <!-- <select id="findUserById" resultType="user">
         SELECT
             u.id,
             user_name,
             PASSWORD,
             address,
             dept_id,
-            d.id as 'dept.id',<!--ORGL对象图导航语言-->
+            d.id as 'dept.id',&lt;!&ndash;ORGL对象图导航语言&ndash;&gt;
            dept_name as 'dept.deptName'
         FROM
             t_user u
         LEFT JOIN t_dept d ON u.dept_id = d.id
         WHERE
             u.id = #{userId};
-    </select>
+    </select>-->
 
     <resultMap id="userwithTagMap" type="user" extends="baseMap">
         <collection property="tagList" ofType="tag">
@@ -61,6 +61,6 @@
         INNER JOIN t_user_tag ON t_user.id = t_user_tag.uid
         INNER JOIN t_tag ON t_tag.id = t_user_tag.tid
         WHERE
-            t_user.id = 1
+            t_user.id = #{id}
     </select>
 </mapper>

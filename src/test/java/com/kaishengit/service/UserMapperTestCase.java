@@ -34,10 +34,9 @@ public class UserMapperTestCase {
     public void findUserByIdTest() {
 
        User user = userMapper.findUserById(1);
-       User user2 = userMapper.findUserById(1);
+       //User user2 = userMapper.findUserById(1);
        System.out.println(user);
-       System.out.println(user2);
-       System.out.println(user.getUserName() + "-->"+ user.getDept().getDeptName());
+       //System.out.println(user.getUserName() + "-->"+ user.getDept().getDeptName());
     }
 
     @Test

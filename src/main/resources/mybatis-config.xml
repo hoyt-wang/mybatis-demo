@@ -29,6 +29,8 @@
         <mapper resource="mapper/UserMapper.xml"/>
         <mapper resource="mapper/BookMapper.xml" />
         <mapper resource="mapper/ProductMapper.xml"/>
+        <mapper resource="mapper/DeptMapper.xml"/>
+        <mapper class="com.kaishengit.mapper.TagMapper"/>
         <mapper class="com.kaishengit.mapper.StudentMapper"/>
     </mappers>
 
